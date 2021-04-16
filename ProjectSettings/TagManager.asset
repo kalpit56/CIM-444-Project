@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - GroundSpawn
+  - Platform
+  - Fact
+  - Question
   layers:
   - Default
   - TransparentFX

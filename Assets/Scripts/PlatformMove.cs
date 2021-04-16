@@ -5,18 +5,23 @@ using UnityEngine;
 public class PlatformMove : MonoBehaviour
 {
 
-    float speed = 1.5f;
+    public float speed = 1.5f;
     float position;
     bool up;
     float direction;
     public float distance;
+    public bool horizontal;
+    public bool vertical;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        //platform = this;
-        position = this.transform.position.y;
+        if(horizontal){
+            position = this.transform.position.x;
+        } else {
+            position = this.transform.position.y;
+        }
         up = true;
         direction = 1;
     }
@@ -24,12 +29,23 @@ public class PlatformMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(this.transform.position.y > position + distance) {
-            direction = -1;
-        } else if(this.transform.position.y < position){
-            direction = 1;
-        }
+
+        if(horizontal){
+            if(this.transform.position.x > position + distance) {
+                direction = -1;
+            } else if(this.transform.position.x < position){
+                direction = 1;
+            }
         
-        this.transform.position += new Vector3(0, direction * speed, 0) * Time.deltaTime;
+            this.transform.position += new Vector3(direction * speed, 0, 0) * Time.deltaTime;
+        } else {
+            if(this.transform.position.y > position + distance) {
+                direction = -1;
+            } else if(this.transform.position.y < position){
+                direction = 1;
+            }
+        
+            this.transform.position += new Vector3(0, direction * speed, 0) * Time.deltaTime;
+        }
     }
 }
