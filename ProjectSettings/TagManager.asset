@@ -11,6 +11,7 @@ TagManager:
   - PoliceQuestion
   - PoliceShoot
   - VotingCenter
+  - KKKQuestion
   layers:
   - Default
   - TransparentFX

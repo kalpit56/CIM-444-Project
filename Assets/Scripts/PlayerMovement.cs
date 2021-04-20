@@ -80,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
         if(collision.gameObject.tag == "GroundSpawn"){
             count++;
             GameObject gameObject = Instantiate(groundPrefab, new Vector3((count * 11.98f), -1.75f, 0), groundPrefab.transform.rotation);
-            GameObject gameObject2 = Instantiate(cloudPrefab, new Vector3((count * 25f), 10f, -900f), cloudPrefab.transform.rotation);
+            GameObject gameObject2 = Instantiate(cloudPrefab, new Vector3((count * 25f), 10f, -835f), cloudPrefab.transform.rotation);
         }
 
         if(collision.gameObject.tag == "Platform"){
@@ -139,10 +139,10 @@ public class PlayerMovement : MonoBehaviour
    
 
     private IEnumerator spanIn(){
-        while(myCamera.orthographicSize > 5){
+        while(myCamera.orthographicSize > 6){
             //if(){
                 myCamera.orthographicSize -= 0.025f;
-                myCamera.transform.position += new Vector3(0, 3f, 0) * Time.deltaTime;
+                myCamera.transform.position += new Vector3(0, 3.5f, 0) * Time.deltaTime;
             //}
             yield return new WaitForSeconds(0.01f);
         }
@@ -150,10 +150,10 @@ public class PlayerMovement : MonoBehaviour
 
 
     private IEnumerator spanOut() {
-        while(myCamera.orthographicSize < 7.5) {
+        while(myCamera.orthographicSize < 8) {
             //if(){
                 myCamera.orthographicSize += 0.01f;
-                myCamera.transform.position += new Vector3(0, -1.5f, 0) * Time.deltaTime;
+                myCamera.transform.position += new Vector3(0, -2f, 0) * Time.deltaTime;
             //}
             yield return new WaitForSeconds(0.01f);
         }

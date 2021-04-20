@@ -8,6 +8,7 @@ public class QuestionTrigger : MonoBehaviour
 
     public GameObject player;
     public GameObject police;
+    public GameObject KKK;
     public Canvas questionCanvas;
     public Canvas correctAnswer;
     public Text questionText;
@@ -55,6 +56,12 @@ public class QuestionTrigger : MonoBehaviour
             Destroy(collision.gameObject);
             police.SetActive(false);
         }
+
+        if(collision.gameObject.tag == "KKKQuestion"){
+            dispalyQuestion();
+            KKK.GetComponent<PlatformMove>().enabled = false;
+            Destroy(collision.gameObject.GetComponent<BoxCollider2D>());
+        }
     }
 
     public void check(int input){
@@ -80,10 +87,10 @@ public class QuestionTrigger : MonoBehaviour
         questionCanvas.enabled = true;
         player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         player.GetComponent<PlayerMovement>().enabled = false;
-        random = Random.Range(0, 4);
+        random = Random.Range(0, 6);
         while(asked.Contains(random)){
-            random = Random.Range(0, 4);
-            if(asked.Count == 5){
+            random = Random.Range(0, 6);
+            if(asked.Count == 7){
                 Debug.Log("out of questions");
                 break;
             }
