@@ -6,6 +6,7 @@ public class GroundSpawner : MonoBehaviour
 {
     public GameObject player;
     public GameObject groundPrefab;
+    public GameObject cloudPrefab;
 
     // Start is called before the first frame update
     void Start()

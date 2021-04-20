@@ -8,6 +8,9 @@ TagManager:
   - Platform
   - Fact
   - Question
+  - PoliceQuestion
+  - PoliceShoot
+  - VotingCenter
   layers:
   - Default
   - TransparentFX
